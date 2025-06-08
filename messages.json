@@ -3,34 +3,10 @@
     "parts": [
       {
         "type": "text",
-        "text": "hello"
+        "text": "write a long story"
       }
     ],
-    "id": "VSZ4wqGSqNQ0HRK5",
-    "role": "user"
-  },
-  {
-    "id": "UWLUl6mMIrccY2mk",
-    "metadata": {},
-    "role": "assistant",
-    "parts": [
-      {
-        "type": "step-start"
-      },
-      {
-        "type": "text",
-        "text": "Hello! How can I assist you today?"
-      }
-    ]
-  },
-  {
-    "parts": [
-      {
-        "type": "text",
-        "text": "again"
-      }
-    ],
-    "id": "HW1QRaT6gPeOJB9r",
+    "id": "3IClVFjjgKNkNOQE",
     "role": "user"
   },
   {
@@ -42,8 +18,33 @@
         "type": "step-start"
       },
       {
+        "type": "tool-invocation",
+        "toolInvocation": {
+          "state": "result",
+          "toolCallId": "call_q0VBgXHLVaZqUd42CerychJQ",
+          "toolName": "generateWriting",
+          "args": {
+            "prompt": "Once upon a time, in a land far away, there was a small village nestled between lush green mountains and a shimmering river. The villagers were known for their kindness, hardworking nature, and a mysterious legend that had been passed down through generations. This legend spoke of a hidden treasure buried deep within the heart of the mountains, guarded by ancient creatures and protected by complex puzzles. Many daring explorers had tried to uncover the treasure, but none had succeeded. Among the villagers was a curious young girl named Elara, who dreamed of uncovering the truth behind the legend. One day, armed with nothing but a satchel of supplies, a map passed down from her grandmother, and her unwavering determination, Elara decided to embark on the quest. Her journey led her through dense forests, across raging rivers, and into dark caves filled with strange noises and shimmering crystals. Along the way, she met various creatures—some friendly, some mischievous, and some terrifying. She solved riddles that tested her intelligence and bravery, and faced challenges that pushed her to her limits. As Elara ventured deeper into the mountains, she uncovered truths about herself and her ancestors, realizing that the real treasure was not gold or jewels, but knowledge, courage, and the bonds of friendship. After many trials and adventures, Elara reached the heart of the mountain, where she discovered a magnificent chamber filled with glowing inscriptions and ancient artifacts. It was there she found the legendary treasure, but more importantly, she discovered her own strength and purpose. Elara returned to her village a hero, not because she had found riches, but because she had found herself."
+          },
+          "result": {
+            "prompt": "Once upon a time, in a land far away, there was a small village nestled between lush green mountains and a shimmering river. The villagers were known for their kindness, hardworking nature, and a mysterious legend that had been passed down through generations. This legend spoke of a hidden treasure buried deep within the heart of the mountains, guarded by ancient creatures and protected by complex puzzles. Many daring explorers had tried to uncover the treasure, but none had succeeded. Among the villagers was a curious young girl named Elara, who dreamed of uncovering the truth behind the legend. One day, armed with nothing but a satchel of supplies, a map passed down from her grandmother, and her unwavering determination, Elara decided to embark on the quest. Her journey led her through dense forests, across raging rivers, and into dark caves filled with strange noises and shimmering crystals. Along the way, she met various creatures—some friendly, some mischievous, and some terrifying. She solved riddles that tested her intelligence and bravery, and faced challenges that pushed her to her limits. As Elara ventured deeper into the mountains, she uncovered truths about herself and her ancestors, realizing that the real treasure was not gold or jewels, but knowledge, courage, and the bonds of friendship. After many trials and adventures, Elara reached the heart of the mountain, where she discovered a magnificent chamber filled with glowing inscriptions and ancient artifacts. It was there she found the legendary treasure, but more importantly, she discovered her own strength and purpose. Elara returned to her village a hero, not because she had found riches, but because she had found herself.",
+            "text": "Elara’s journey highlights that true treasure lies within—courage, wisdom, and self-discovery. Her adventure through forests, rivers, and caves challenged her limits and revealed her inner strength. The legend's true meaning became clear: the journey itself and the bonds formed are the greatest riches. Her return as a hero emphasizes that self-awareness and perseverance are more valuable than gold. This timeless tale inspires us to seek our own truths and value the intangible treasures of life."
+          }
+        }
+      },
+      {
+        "type": "data-generateWriting",
+        "data": {
+          "text": "Elara’s journey highlights that true treasure lies within—courage, wisdom, and self-discovery. Her adventure through forests, rivers, and caves challenged her limits and revealed her inner strength. The legend's true meaning became clear: the journey itself and the bonds formed are the greatest riches. Her return as a hero emphasizes that self-awareness and perseverance are more valuable than gold. This timeless tale inspires us to seek our own truths and value the intangible treasures of life."
+        },
+        "id": "call_q0VBgXHLVaZqUd42CerychJQ"
+      },
+      {
+        "type": "step-start"
+      },
+      {
         "type": "text",
-        "text": "Hello again! How can I assist you today?"
+        "text": "The story of Elara stands as a testament to the idea that the most valuable treasures in life are not material riches, but the courage to pursue our dreams, the wisdom gained along the way, and the understanding of ourselves. Her adventure through wilderness and unknown territories tested her resilience and heart, ultimately leading her to discover that true strength comes from within. The legend, once a mystery guarded by ancient creatures and puzzles, served as a catalyst for her growth, transforming her into a hero not by the riches she could have taken, but by the person she became. Her journey reminds us all that their greatest quests are often those that lead us to our true selves, and that every step taken in pursuit of our passions carries invaluable lessons that shape our future."
       }
     ]
   }

@@ -112,7 +112,7 @@ const Message = (message: UIMessage) => {
             case "data-generateWriting":
               return (
                 <div key={i} className="whitespace-pre-wrap">
-                  <div className="font-mono rounded-lg text-gray-800 p-6 py-3 -ml-6 text-xs bg-white leading-relaxed tracking-wide w-full">
+                  <div className="font-mono rounded-lg text-gray-800 p-6 py-3 -mx-6 text-xs bg-white leading-relaxed tracking-wide w-full">
                     <Markdown>{p.data.text}</Markdown>
                   </div>
                 </div>
