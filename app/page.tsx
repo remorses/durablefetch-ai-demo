@@ -38,9 +38,6 @@ export default function Chat() {
 
   const { messages, sendMessage, error } = useChat({
     transport: new DefaultChatTransport({ api, fetch: df.fetch }),
-    onFinish() {
-      localStorage.setItem("lastMessage", "");
-    },
     id: chatId,
     dataPartSchemas: {
       generateWriting: z.object({
