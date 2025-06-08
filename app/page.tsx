@@ -55,7 +55,7 @@ export default function Chat() {
     <div className="flex flex-col w-full h-dvh py-8 stretch">
       <div className="space-y-4 flex-grow overflow-y-auto" ref={containerRef}>
         {messages.map((m) => (
-          <Message key={m.id} message={m} />
+          <Message key={m.id} {...m} />
         ))}
         <div ref={endRef} className="h-2" />
       </div>
@@ -86,7 +86,7 @@ export default function Chat() {
   );
 }
 
-const Message = React.memo(({ message }: { message: UIMessage }) => {
+const Message = React.memo((message: UIMessage) => {
   if (!message.parts?.length) return null;
 
   return (
