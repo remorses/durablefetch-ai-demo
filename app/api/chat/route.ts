@@ -1,16 +1,15 @@
 import { openai } from "@ai-sdk/openai";
 import { OpenAIProviderOptions } from "@ai-sdk/openai/internal";
 import {
-  convertToModelMessages,
-  createUIMessageStream,
-  createUIMessageStreamResponse,
-  hasToolCall,
-  maxSteps,
-  smoothStream,
-  streamText,
-  tool,
-  UIMessage,
+    convertToModelMessages,
+    createUIMessageStream,
+    createUIMessageStreamResponse,
+    smoothStream,
+    streamText,
+    tool,
+    UIMessage
 } from "ai";
+import fs from "fs";
 import { z } from "zod";
 
 // Allow streaming responses up to 30 seconds
@@ -20,22 +19,30 @@ export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
 
   const stream = createUIMessageStream({
-    execute: (writer) => {
+    originalMessages: messages,
+    async onFinish(options) {
+      fs.writeFileSync(
+        "messages.json",
+        JSON.stringify(options.messages, null, 2),
+      );
+      {
+        const array = await streamToArray(uiStream2);
+        fs.writeFileSync("ui-stream.json", JSON.stringify(array, null, 2));
+      }
+    },
+    execute: (opts) => {
+      opts.writer
       const result = streamText({
         model: openai("gpt-4.1-mini"),
         messages: convertToModelMessages(messages),
-        continueUntil: (opts) => {
-          return (
-            hasToolCall("getWeather")(opts) ||
-            hasToolCall("generateWriting")(opts) ||
-            maxSteps(3)(opts)
-          );
-        },
+        stopWhen: () => false,
         providerOptions: {
           openai: {
-            parallelToolCalls: false,
+            parallelToolCalls: true,
           } satisfies OpenAIProviderOptions,
         },
+        onFinish(data) {},
+
         tools: {
           getWeather: tool({
             description: "Get the current weather at a location",
@@ -48,7 +55,7 @@ export async function POST(req: Request) {
               const response = await fetch(
                 `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weathercode,relativehumidity_2m&timezone=auto`,
               );
-              writer.write({
+              opts.writer.write({
                 type: "data-weather",
                 data: {
                   temperature: undefined,
@@ -61,7 +68,7 @@ export async function POST(req: Request) {
               });
 
               const weatherData = await response.json();
-              writer.write({
+              opts.writer.write({
                 type: "data-weather",
                 data: {
                   temperature: weatherData.current.temperature_2m,
@@ -95,7 +102,7 @@ export async function POST(req: Request) {
               let writing = "";
               for await (const delta of result.textStream) {
                 writing += delta;
-                writer.write({
+                opts.writer.write({
                   type: "data-generateWriting",
                   data: {
                     text: writing,
@@ -129,19 +136,43 @@ export async function POST(req: Request) {
           }),
         },
       });
-      writer.merge(
-        result.toUIMessageStream({
-          onError: (error) => {
-            if (error instanceof Error) {
-              return error.message;
-            }
-            console.error(error);
-            return "An unknown error occurred.";
-          },
-        }),
-      );
+
+      result.fullStream;
+      const uiStream = result.toUIMessageStream({
+        originalMessages: messages,
+        sendFinish: true,
+        messageMetadata(options) {},
+
+        onError: (error) => {
+          if (error instanceof Error) {
+            return error.message;
+          }
+          console.error(error);
+          return "An unknown error occurred.";
+        },
+      });
+
+      opts.writer.merge(uiStream);
     },
   });
+  const [cloned, uiStream2] = stream.tee();
 
-  return createUIMessageStreamResponse({ stream });
+  return createUIMessageStreamResponse({ stream: cloned });
+}
+
+async function streamToArray<T>(stream: ReadableStream<T>): Promise<T[]> {
+  const reader = stream.getReader();
+  const chunks: T[] = [];
+
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+
+  return chunks;
 }

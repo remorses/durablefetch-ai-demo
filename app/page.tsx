@@ -2,27 +2,45 @@
 
 import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
 import { useChat } from "@ai-sdk/react";
-import { defaultChatStore } from "ai";
+import { DefaultChatTransport } from "ai";
+import { useEffect } from "react";
+import { DurableFetchClient } from "durablefetch";
 import Markdown from "react-markdown";
 import { z } from "zod";
 
+const df = new DurableFetchClient(); // defaults to durablefetch.fumabase.com
+
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit, error } = useChat({
-    chatStore: defaultChatStore({
-      api: "/api/chat",
-      dataPartSchemas: {
-        weather: z.object({
-          temperature: z.number(),
-          loading: z.boolean(),
-          city: z.string(),
-          weatherCode: z.number(),
-          humidity: z.number(),
-        }),
-        generateWriting: z.object({
-          text: z.string(),
-        }),
-      },
-    }),
+  const chatId = "asdfsdflkhsdfklsdfj";
+  // api path must be unique per chat
+  const api = `/api/chat?chatId=${chatId}`;
+  useEffect(() => {
+    df.isInProgress(api).then(({ inProgress }) => {
+      if (inProgress) {
+        console.log(`resuming the previous chat message stream`);
+        return sendMessage({
+          parts: [], // body does not matter, the previous fetch call with the same url is resumed
+        });
+      }
+    });
+  }, []);
+
+  const { messages, sendMessage, error } = useChat({
+    transport: new DefaultChatTransport({ api, fetch: durableFetch }),
+
+    id: chatId,
+    dataPartSchemas: {
+      weather: z.object({
+        temperature: z.number(),
+        weatherCode: z.number(),
+        humidity: z.number(),
+        city: z.string(),
+        loading: z.boolean(),
+      }),
+      generateWriting: z.object({
+        text: z.string(),
+      }),
+    },
   });
 
   const [containerRef, endRef] = useScrollToBottom();
@@ -33,6 +51,8 @@ export default function Chat() {
     <div className="flex flex-col w-full h-dvh py-8 stretch">
       <div className="space-y-4 flex-grow overflow-y-auto" ref={containerRef}>
         {messages.map((m) => {
+          console.log(m);
+          if (!m.parts?.length) return;
           return (
             <div key={m.id} className="max-w-xl mx-auto">
               <div className="font-bold">{m.role}</div>
@@ -169,12 +189,24 @@ export default function Chat() {
         <div ref={endRef} className="h-2" />
       </div>
 
-      <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          sendMessage({ parts: [] });
+          return;
+          const formData = new FormData(e.currentTarget);
+          const message = formData.get("message") as string;
+          if (message.trim()) {
+            sendMessage({ text: message });
+            e.currentTarget.reset();
+          }
+        }}
+        className="w-full max-w-xl mx-auto"
+      >
         <input
           className="w-full p-2 border border-gray-300 rounded shadow-xl"
-          value={input}
+          name="message"
           placeholder="Say something..."
-          onChange={handleInputChange}
         />
       </form>
     </div>

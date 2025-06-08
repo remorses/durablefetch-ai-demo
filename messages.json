@@ -1,0 +1,121 @@
+[
+  {
+    "parts": [
+      {
+        "type": "text",
+        "text": "hi"
+      }
+    ],
+    "id": "HsRnDJT48eDIuEQy",
+    "role": "user"
+  },
+  {
+    "id": "Uifqlk7YZSiFWeNO",
+    "metadata": {},
+    "role": "assistant",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "Hello! How can I assist you today?"
+      }
+    ]
+  },
+  {
+    "parts": [],
+    "id": "ArdMN8iuRhUFf0UZ",
+    "role": "user"
+  },
+  {
+    "id": "lsSxF2tBSJyxx2mg",
+    "metadata": {},
+    "role": "assistant",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "It looks like your message didn't come through. How can I help you today?"
+      }
+    ]
+  },
+  {
+    "parts": [],
+    "id": "HnpBqh5RfesGxh40",
+    "role": "user"
+  },
+  {
+    "id": "sbMEHKP0DRP2AD6r",
+    "metadata": {},
+    "role": "assistant",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "I didn't receive any message. Please let me know how I can assist you!"
+      }
+    ]
+  },
+  {
+    "parts": [],
+    "id": "MlQze9sbKvTtcWGC",
+    "role": "user"
+  },
+  {
+    "id": "fdoyWDMY4KkprOap",
+    "metadata": {},
+    "role": "assistant",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "I still didn't receive any message. If you need help with something, please type your request. I'm here to assist!"
+      }
+    ]
+  },
+  {
+    "parts": [],
+    "id": "4X58Gx0QQrpa39if",
+    "role": "user"
+  },
+  {
+    "id": "S4VWY4fg3pQlJMyf",
+    "metadata": {},
+    "role": "assistant",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "I still haven't received any message from you. Please try typing your question or request again whenever you're ready."
+      }
+    ]
+  },
+  {
+    "parts": [],
+    "id": "XRLF11gZHihaas1t",
+    "role": "user"
+  },
+  {
+    "id": "",
+    "metadata": {},
+    "role": "assistant",
+    "parts": [
+      {
+        "type": "step-start"
+      },
+      {
+        "type": "text",
+        "text": "It seems like your messages are coming through empty. If you're experiencing technical issues, you might want to try refreshing the page or using a different device or browser. I'm here to help whenever you're ready!"
+      }
+    ]
+  }
+]

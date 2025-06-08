@@ -1,0 +1,174 @@
+[
+  {
+    "type": "start"
+  },
+  {
+    "type": "start-step"
+  },
+  {
+    "type": "text",
+    "text": "It"
+  },
+  {
+    "type": "text",
+    "text": " seems"
+  },
+  {
+    "type": "text",
+    "text": " like"
+  },
+  {
+    "type": "text",
+    "text": " your"
+  },
+  {
+    "type": "text",
+    "text": " messages"
+  },
+  {
+    "type": "text",
+    "text": " are"
+  },
+  {
+    "type": "text",
+    "text": " coming"
+  },
+  {
+    "type": "text",
+    "text": " through"
+  },
+  {
+    "type": "text",
+    "text": " empty"
+  },
+  {
+    "type": "text",
+    "text": "."
+  },
+  {
+    "type": "text",
+    "text": " If"
+  },
+  {
+    "type": "text",
+    "text": " you're"
+  },
+  {
+    "type": "text",
+    "text": " experiencing"
+  },
+  {
+    "type": "text",
+    "text": " technical"
+  },
+  {
+    "type": "text",
+    "text": " issues"
+  },
+  {
+    "type": "text",
+    "text": ","
+  },
+  {
+    "type": "text",
+    "text": " you"
+  },
+  {
+    "type": "text",
+    "text": " might"
+  },
+  {
+    "type": "text",
+    "text": " want"
+  },
+  {
+    "type": "text",
+    "text": " to"
+  },
+  {
+    "type": "text",
+    "text": " try"
+  },
+  {
+    "type": "text",
+    "text": " refreshing"
+  },
+  {
+    "type": "text",
+    "text": " the"
+  },
+  {
+    "type": "text",
+    "text": " page"
+  },
+  {
+    "type": "text",
+    "text": " or"
+  },
+  {
+    "type": "text",
+    "text": " using"
+  },
+  {
+    "type": "text",
+    "text": " a"
+  },
+  {
+    "type": "text",
+    "text": " different"
+  },
+  {
+    "type": "text",
+    "text": " device"
+  },
+  {
+    "type": "text",
+    "text": " or"
+  },
+  {
+    "type": "text",
+    "text": " browser"
+  },
+  {
+    "type": "text",
+    "text": "."
+  },
+  {
+    "type": "text",
+    "text": " I'm"
+  },
+  {
+    "type": "text",
+    "text": " here"
+  },
+  {
+    "type": "text",
+    "text": " to"
+  },
+  {
+    "type": "text",
+    "text": " help"
+  },
+  {
+    "type": "text",
+    "text": " whenever"
+  },
+  {
+    "type": "text",
+    "text": " you're"
+  },
+  {
+    "type": "text",
+    "text": " ready"
+  },
+  {
+    "type": "text",
+    "text": "!"
+  },
+  {
+    "type": "finish-step"
+  },
+  {
+    "type": "finish"
+  }
+]

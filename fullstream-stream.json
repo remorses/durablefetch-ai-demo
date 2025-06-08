@@ -1,0 +1,408 @@
+[
+  {
+    "type": "start"
+  },
+  {
+    "type": "start-step",
+    "request": {
+      "body": {
+        "model": "gpt-4.1-mini",
+        "parallel_tool_calls": true,
+        "messages": [
+          {
+            "role": "user",
+            "content": "give me the weather in genoa "
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_4B5Dmr4s8cescPy1Dfd4MCHQ",
+                "type": "function",
+                "function": {
+                  "name": "getWeather",
+                  "arguments": "{\"latitude\":44.4056,\"longitude\":8.9463,\"city\":\"Genoa\"}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_4B5Dmr4s8cescPy1Dfd4MCHQ",
+            "content": "{\"temperature\":22.5,\"weatherCode\":3,\"humidity\":79,\"city\":\"Genoa\"}"
+          },
+          {
+            "role": "assistant",
+            "content": "The current weather in Genoa is 22.5°C with some cloudiness. The humidity level is at 79%. If you need more detailed information or a forecast, just let me know!"
+          },
+          {
+            "role": "user",
+            "content": "can you think step by step what you did"
+          },
+          {
+            "role": "assistant",
+            "content": "Certainly! Here's a step-by-step breakdown of what I did to provide you with the weather information for Genoa:\n\n1. Identified the location: You asked for the weather in Genoa, so I recognized Genoa as the city for which you needed weather data.\n\n2. Gathered geographical coordinates: To get precise weather information, I used the known approximate latitude (44.4056) and longitude (8.9463) coordinates for Genoa.\n\n3. Called the weather function: I used a function designed to retrieve current weather conditions, providing it with the city name and its coordinates.\n\n4. Received the weather data response: The function returned specific data including temperature (22.5°C), weather conditions (partly cloudy), and humidity level (79%).\n\n5. Communicated the information: I summarized these data points and shared them with you in an understandable format.\n\nIf you want, I can help with more details or further questions about the weather!"
+          },
+          {
+            "role": "user",
+            "content": "you sure"
+          },
+          {
+            "role": "assistant",
+            "content": "Yes, I am sure. I followed the process of identifying the city, using its coordinates, calling the function to get the weather data, and then providing you with the summarized weather conditions for Genoa. If you have any doubts or want me to verify or explain any part further, please let me know!"
+          },
+          {
+            "role": "user",
+            "content": "ok"
+          },
+          {
+            "role": "assistant",
+            "content": "Great! If you have any other questions or need assistance with anything else, feel free to ask. I'm here to help!"
+          },
+          {
+            "role": "user",
+            "content": "give me wather in 5 places of your choice"
+          },
+          {
+            "role": "assistant",
+            "content": "",
+            "tool_calls": [
+              {
+                "id": "call_xpscgrGDRtN1yJiPBifdyZuu",
+                "type": "function",
+                "function": {
+                  "name": "getWeather",
+                  "arguments": "{\"latitude\":40.7128,\"longitude\":-74.006,\"city\":\"New York\"}"
+                }
+              },
+              {
+                "id": "call_qv8NwQqwy6gB27FPLMx0ZgjK",
+                "type": "function",
+                "function": {
+                  "name": "getWeather",
+                  "arguments": "{\"latitude\":34.0522,\"longitude\":-118.2437,\"city\":\"Los Angeles\"}"
+                }
+              },
+              {
+                "id": "call_H4LGxsgjsVjDggdqiuFQqGQm",
+                "type": "function",
+                "function": {
+                  "name": "getWeather",
+                  "arguments": "{\"latitude\":51.5074,\"longitude\":-0.1278,\"city\":\"London\"}"
+                }
+              },
+              {
+                "id": "call_wjSJZGmPHqJpccHWxzxApMEd",
+                "type": "function",
+                "function": {
+                  "name": "getWeather",
+                  "arguments": "{\"latitude\":35.6895,\"longitude\":139.6917,\"city\":\"Tokyo\"}"
+                }
+              },
+              {
+                "id": "call_qlWJkPKGOTx16alXc00upflh",
+                "type": "function",
+                "function": {
+                  "name": "getWeather",
+                  "arguments": "{\"latitude\":-33.8688,\"longitude\":151.2093,\"city\":\"Sydney\"}"
+                }
+              }
+            ]
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_xpscgrGDRtN1yJiPBifdyZuu",
+            "content": "{\"temperature\":11.5,\"weatherCode\":0,\"humidity\":78,\"city\":\"New York\"}"
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_qv8NwQqwy6gB27FPLMx0ZgjK",
+            "content": "{\"temperature\":14.6,\"weatherCode\":1,\"humidity\":92,\"city\":\"Los Angeles\"}"
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_H4LGxsgjsVjDggdqiuFQqGQm",
+            "content": "{\"temperature\":17.1,\"weatherCode\":2,\"humidity\":45,\"city\":\"London\"}"
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_wjSJZGmPHqJpccHWxzxApMEd",
+            "content": "{\"temperature\":21,\"weatherCode\":3,\"humidity\":82,\"city\":\"Tokyo\"}"
+          },
+          {
+            "role": "tool",
+            "tool_call_id": "call_qlWJkPKGOTx16alXc00upflh",
+            "content": "{\"temperature\":14,\"weatherCode\":3,\"humidity\":89,\"city\":\"Sydney\"}"
+          },
+          {
+            "role": "assistant",
+            "content": "Here is the current weather in 5 places of my choice:\n\n1. New York: Temperature is 11.5°C, clear weather, with 78% humidity.\n2. Los Angeles: Temperature is 14.6°C, mostly clear skies, with 92% humidity.\n3. London: Temperature is 17.1°C, partly cloudy, with 45% humidity.\n4. Tokyo: Temperature is 21°C, some clouds, with 82% humidity.\n5. Sydney: Temperature is 14°C, some clouds, with 89% humidity.\n\nIf you want more details or weather for other locations, just let me know!"
+          },
+          {
+            "role": "user",
+            "content": "cool"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "getWeather",
+              "description": "Get the current weather at a location",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "latitude": {
+                    "type": "number"
+                  },
+                  "longitude": {
+                    "type": "number"
+                  },
+                  "city": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "latitude",
+                  "longitude",
+                  "city"
+                ],
+                "additionalProperties": false,
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "strict": true
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "generateWriting",
+              "description": "Write something (email, poem etc.).",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "prompt": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "prompt"
+                ],
+                "additionalProperties": false,
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "strict": true
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "generateCode",
+              "description": "Generate code based on requirements",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "repo": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "repo"
+                ],
+                "additionalProperties": false,
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "strict": true
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "createPR",
+              "description": "Create a pull request with generated code",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "branch": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "branch"
+                ],
+                "additionalProperties": false,
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "strict": true
+            }
+          }
+        ],
+        "tool_choice": "auto",
+        "stream": true,
+        "stream_options": {
+          "include_usage": true
+        }
+      }
+    },
+    "warnings": []
+  },
+  {
+    "type": "text",
+    "text": "I'm"
+  },
+  {
+    "type": "text",
+    "text": " glad"
+  },
+  {
+    "type": "text",
+    "text": " you"
+  },
+  {
+    "type": "text",
+    "text": " liked"
+  },
+  {
+    "type": "text",
+    "text": " it"
+  },
+  {
+    "type": "text",
+    "text": "!"
+  },
+  {
+    "type": "text",
+    "text": " If"
+  },
+  {
+    "type": "text",
+    "text": " there's"
+  },
+  {
+    "type": "text",
+    "text": " anything"
+  },
+  {
+    "type": "text",
+    "text": " else"
+  },
+  {
+    "type": "text",
+    "text": " you'd"
+  },
+  {
+    "type": "text",
+    "text": " like"
+  },
+  {
+    "type": "text",
+    "text": " to"
+  },
+  {
+    "type": "text",
+    "text": " know"
+  },
+  {
+    "type": "text",
+    "text": " or"
+  },
+  {
+    "type": "text",
+    "text": " explore"
+  },
+  {
+    "type": "text",
+    "text": ","
+  },
+  {
+    "type": "text",
+    "text": " just"
+  },
+  {
+    "type": "text",
+    "text": " ask"
+  },
+  {
+    "type": "text",
+    "text": "."
+  },
+  {
+    "type": "text",
+    "text": " I'm"
+  },
+  {
+    "type": "text",
+    "text": " here"
+  },
+  {
+    "type": "text",
+    "text": " to"
+  },
+  {
+    "type": "text",
+    "text": " help"
+  },
+  {
+    "type": "text",
+    "text": "!"
+  },
+  {
+    "type": "finish-step",
+    "finishReason": "stop",
+    "usage": {
+      "inputTokens": 1008,
+      "outputTokens": 26,
+      "totalTokens": 1034,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0
+    },
+    "providerMetadata": {
+      "openai": {
+        "acceptedPredictionTokens": 0,
+        "rejectedPredictionTokens": 0
+      }
+    },
+    "response": {
+      "id": "chatcmpl-BdwvaDYoGZL0GAvpkuco2j5pJiBgM",
+      "timestamp": "2025-06-02T10:43:30.000Z",
+      "modelId": "gpt-4.1-mini-2025-04-14",
+      "headers": {
+        "access-control-expose-headers": "X-Request-ID",
+        "alt-svc": "h3=\":443\"; ma=86400",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "949659a2a8b5bac3-MXP",
+        "connection": "keep-alive",
+        "content-type": "text/event-stream; charset=utf-8",
+        "date": "Mon, 02 Jun 2025 10:43:30 GMT",
+        "openai-organization": "user-bjnzu58q7uzsfwqx2w5kcvma",
+        "openai-processing-ms": "319",
+        "openai-version": "2020-10-01",
+        "server": "cloudflare",
+        "set-cookie": "_cfuvid=9bjYkvG_7yNxf.nOHVFHMoRL7WA.icFYJNngy1OXwqc-1748861010821-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None",
+        "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+        "transfer-encoding": "chunked",
+        "x-content-type-options": "nosniff",
+        "x-envoy-upstream-service-time": "323",
+        "x-ratelimit-limit-requests": "10000",
+        "x-ratelimit-limit-tokens": "10000000",
+        "x-ratelimit-remaining-requests": "9999",
+        "x-ratelimit-remaining-tokens": "9999352",
+        "x-ratelimit-reset-requests": "6ms",
+        "x-ratelimit-reset-tokens": "3ms",
+        "x-request-id": "req_51edb6860fc3f8af79d714dab8fd647d"
+      }
+    }
+  },
+  {
+    "type": "finish",
+    "finishReason": "stop",
+    "totalUsage": {
+      "inputTokens": 1008,
+      "outputTokens": 26,
+      "totalTokens": 1034,
+      "reasoningTokens": 0,
+      "cachedInputTokens": 0
+    }
+  }
+]
