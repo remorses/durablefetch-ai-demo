@@ -18,7 +18,7 @@ export default function Chat() {
   if (!chatId) {
     {
       window.location.href = `/?chatId=${Math.random().toString(36).substring(2)}`;
-      return null;
+      return;
     }
   }
   // api path must be unique per chat
