@@ -24,8 +24,9 @@ export default function Chat() {
   // api path must be unique per chat
   const api = `/api/chat?chatId=${chatId}`;
   useEffect(() => {
-    df.isInProgress(api).then(({ inProgress }) => {
-      if (inProgress) {
+    df.isInProgress(api).then(({ inProgress, completed }) => {
+      // here we show the chat even if it is completed for demo purposes, you should only show the chat if in progress and use the message from database otherwise
+      if (inProgress || completed) {
         console.log(`resuming the previous chat message stream`);
         const text = localStorage.getItem("lastMessage") || "";
         return sendMessage({
