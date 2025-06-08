@@ -26,8 +26,8 @@ export async function POST(req: Request) {
         JSON.stringify(options.messages, null, 2),
       );
       {
-        const array = await streamToArray(uiStream2);
-        fs.writeFileSync("ui-stream.json", JSON.stringify(array, null, 2));
+        // const array = await streamToArray(uiStream2);
+        // fs.writeFileSync("ui-stream.json", JSON.stringify(array, null, 2));
       }
     },
     execute: (opts) => {
