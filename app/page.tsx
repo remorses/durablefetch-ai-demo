@@ -111,6 +111,7 @@ export default function Chat() {
         className="w-full max-w-xl mx-auto"
       >
         <input
+          autoFocus
           className="w-full p-2 border border-gray-300 rounded shadow-xl"
           name="message"
           placeholder="Say something..."
