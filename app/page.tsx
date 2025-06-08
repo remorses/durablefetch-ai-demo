@@ -8,7 +8,7 @@ import { DurableFetchClient } from "durablefetch";
 import Markdown from "react-markdown";
 import { z } from "zod";
 
-const df = new DurableFetchClient(); // defaults to durablefetch.fumabase.com
+const df = new DurableFetchClient();
 
 export default function Chat() {
   const chatId = "asdfsdflkhsdfklsdfj";
@@ -26,7 +26,7 @@ export default function Chat() {
   }, []);
 
   const { messages, sendMessage, error } = useChat({
-    transport: new DefaultChatTransport({ api, fetch: durableFetch }),
+    transport: new DefaultChatTransport({ api, fetch: df.fetch }),
 
     id: chatId,
     dataPartSchemas: {
