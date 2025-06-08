@@ -98,8 +98,9 @@ export default function Chat() {
       </div>
 
       <form
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
+          await df.delete(api)
           const formData = new FormData(e.currentTarget);
           const message = formData.get("message") as string;
           if (message.trim()) {
