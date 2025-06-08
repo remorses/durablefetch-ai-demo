@@ -1,13 +1,13 @@
 import { openai } from "@ai-sdk/openai";
 import { OpenAIProviderOptions } from "@ai-sdk/openai/internal";
 import {
-    convertToModelMessages,
-    createUIMessageStream,
-    createUIMessageStreamResponse,
-    smoothStream,
-    streamText,
-    tool,
-    UIMessage
+  convertToModelMessages,
+  createUIMessageStream,
+  createUIMessageStreamResponse,
+  smoothStream,
+  streamText,
+  tool,
+  UIMessage,
 } from "ai";
 import fs from "fs";
 import { z } from "zod";
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
       }
     },
     execute: (opts) => {
-      opts.writer
+      opts.writer;
       const result = streamText({
         model: openai("gpt-4.1-mini"),
         messages: convertToModelMessages(messages),
@@ -137,7 +137,6 @@ export async function POST(req: Request) {
         },
       });
 
-      result.fullStream;
       const uiStream = result.toUIMessageStream({
         originalMessages: messages,
         sendFinish: true,
