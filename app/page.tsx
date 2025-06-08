@@ -12,49 +12,6 @@ import { useSearchParams } from "next/navigation";
 
 const df = new DurableFetchClient();
 
-const Message = React.memo(({ message }: { message: any }) => {
-  if (!message.parts?.length) return null;
-
-  return (
-    <div key={message.id} className="max-w-xl mx-auto">
-      <div className="font-bold">{message.role}</div>
-      <div className="space-y-4">
-        {message.parts.map((p: any, i: number) => {
-          switch (p.type) {
-            case "text":
-              return (
-                <div key={i} className="whitespace-pre-wrap">
-                  <div>
-                    <p>{p.text}</p>
-                  </div>
-                </div>
-              );
-            case "tool-invocation":
-              return (
-                <div key={i} className="">
-                  <p>Calling tool {p.toolInvocation.toolName}</p>
-                </div>
-              );
-            case "data-generateWriting":
-              return (
-                <div key={i} className="whitespace-pre-wrap">
-                  <div className="font-mono rounded-lg text-gray-800 p-6 py-3 -ml-6 text-xs bg-white leading-relaxed tracking-wide w-full">
-                    <Markdown>{p.data.text}</Markdown>
-                  </div>
-                </div>
-              );
-
-            default:
-              return null;
-          }
-        })}
-      </div>
-    </div>
-  );
-});
-
-Message.displayName = "Message";
-
 export default function Chat() {
   const searchParams = useSearchParams();
   const chatId = searchParams.get("chatId");
@@ -127,3 +84,46 @@ export default function Chat() {
     </div>
   );
 }
+
+const Message = React.memo(({ message }: { message: any }) => {
+  if (!message.parts?.length) return null;
+
+  return (
+    <div key={message.id} className="max-w-xl mx-auto">
+      <div className="font-bold">{message.role}</div>
+      <div className="space-y-4">
+        {message.parts.map((p: any, i: number) => {
+          switch (p.type) {
+            case "text":
+              return (
+                <div key={i} className="whitespace-pre-wrap">
+                  <div>
+                    <p>{p.text}</p>
+                  </div>
+                </div>
+              );
+            case "tool-invocation":
+              return (
+                <div key={i} className="">
+                  <p>Calling tool {p.toolInvocation.toolName}</p>
+                </div>
+              );
+            case "data-generateWriting":
+              return (
+                <div key={i} className="whitespace-pre-wrap">
+                  <div className="font-mono rounded-lg text-gray-800 p-6 py-3 -ml-6 text-xs bg-white leading-relaxed tracking-wide w-full">
+                    <Markdown>{p.data.text}</Markdown>
+                  </div>
+                </div>
+              );
+
+            default:
+              return null;
+          }
+        })}
+      </div>
+    </div>
+  );
+});
+
+Message.displayName = "Message";
