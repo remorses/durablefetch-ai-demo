@@ -4,12 +4,56 @@ import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { useEffect } from "react";
+import React from "react";
 import { DurableFetchClient } from "durablefetch";
 import Markdown from "react-markdown";
 import { z } from "zod";
 import { useSearchParams } from "next/navigation";
 
 const df = new DurableFetchClient();
+
+const Message = React.memo(({ message }: { message: any }) => {
+  if (!message.parts?.length) return null;
+
+  return (
+    <div key={message.id} className="max-w-xl mx-auto">
+      <div className="font-bold">{message.role}</div>
+      <div className="space-y-4">
+        {message.parts.map((p: any, i: number) => {
+          switch (p.type) {
+            case "text":
+              return (
+                <div key={i} className="whitespace-pre-wrap">
+                  <div>
+                    <p>{p.text}</p>
+                  </div>
+                </div>
+              );
+            case "tool-invocation":
+              return (
+                <div key={i} className="">
+                  <p>Calling tool {p.toolInvocation.toolName}</p>
+                </div>
+              );
+            case "data-generateWriting":
+              return (
+                <div key={i} className="whitespace-pre-wrap">
+                  <div className="font-mono rounded-lg text-gray-800 p-6 py-3 -ml-6 text-xs bg-white leading-relaxed tracking-wide w-full">
+                    <Markdown>{p.data.text}</Markdown>
+                  </div>
+                </div>
+              );
+
+            default:
+              return null;
+          }
+        })}
+      </div>
+    </div>
+  );
+});
+
+Message.displayName = "Message";
 
 export default function Chat() {
   const searchParams = useSearchParams();
@@ -53,45 +97,9 @@ export default function Chat() {
   return (
     <div className="flex flex-col w-full h-dvh py-8 stretch">
       <div className="space-y-4 flex-grow overflow-y-auto" ref={containerRef}>
-        {messages.map((m) => {
-          if (!m.parts?.length) return;
-          return (
-            <div key={m.id} className="max-w-xl mx-auto">
-              <div className="font-bold">{m.role}</div>
-              <div className="space-y-4">
-                {m.parts.map((p, i) => {
-                  switch (p.type) {
-                    case "text":
-                      return (
-                        <div key={i} className="whitespace-pre-wrap">
-                          <div>
-                            <p>{p.text}</p>
-                          </div>
-                        </div>
-                      );
-                    case "tool-invocation":
-                      return (
-                        <div key={i} className="">
-                          <p>Calling tool {p.toolInvocation.toolName}</p>
-                        </div>
-                      );
-                    case "data-generateWriting":
-                      return (
-                        <div key={i} className="whitespace-pre-wrap">
-                          <div className="font-mono rounded-lg text-gray-800 p-6 py-3 -ml-6 text-xs bg-white leading-relaxed tracking-wide w-full">
-                            <Markdown>{p.data.text}</Markdown>
-                          </div>
-                        </div>
-                      );
-
-                    default:
-                      return null;
-                  }
-                })}
-              </div>
-            </div>
-          );
-        })}
+        {messages.map((m) => (
+          <Message key={m.id} message={m} />
+        ))}
         <div ref={endRef} className="h-2" />
       </div>
 
