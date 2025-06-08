@@ -22,7 +22,7 @@ export default function Chat() {
       return;
     }
   }
-  // api path must be unique per chat
+
   const api = `/api/chat?chatId=${chatId}`;
   useEffect(() => {
     df.isInProgress(api).then(({ inProgress, completed }) => {
