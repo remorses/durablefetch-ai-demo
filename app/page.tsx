@@ -60,7 +60,6 @@ export default function Chat() {
     <div className="flex flex-col w-full h-dvh py-8 stretch">
       <div className="space-y-4 flex-grow overflow-y-auto" ref={containerRef}>
         {messages.map((m) => {
-          console.log(m);
           if (!m.parts?.length) return;
           return (
             <div key={m.id} className="max-w-xl mx-auto">
