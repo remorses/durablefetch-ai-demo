@@ -1,16 +1,11 @@
 [
   {
-    "parts": [
-      {
-        "type": "text",
-        "text": "hi"
-      }
-    ],
-    "id": "HsRnDJT48eDIuEQy",
+    "parts": [],
+    "id": "IRetYCqyue3ztzdi",
     "role": "user"
   },
   {
-    "id": "Uifqlk7YZSiFWeNO",
+    "id": "7fgUHJBIsuaWM2vB",
     "metadata": {},
     "role": "assistant",
     "parts": [
@@ -24,12 +19,17 @@
     ]
   },
   {
-    "parts": [],
-    "id": "ArdMN8iuRhUFf0UZ",
+    "parts": [
+      {
+        "type": "text",
+        "text": "hello"
+      }
+    ],
+    "id": "zEhhMeb7IQP4Jur4",
     "role": "user"
   },
   {
-    "id": "lsSxF2tBSJyxx2mg",
+    "id": "ZApY6BgjLw1QvStv",
     "metadata": {},
     "role": "assistant",
     "parts": [
@@ -38,70 +38,18 @@
       },
       {
         "type": "text",
-        "text": "It looks like your message didn't come through. How can I help you today?"
+        "text": "Hi there! How can I help you today?"
       }
     ]
   },
   {
-    "parts": [],
-    "id": "HnpBqh5RfesGxh40",
-    "role": "user"
-  },
-  {
-    "id": "sbMEHKP0DRP2AD6r",
-    "metadata": {},
-    "role": "assistant",
     "parts": [
       {
-        "type": "step-start"
-      },
-      {
         "type": "text",
-        "text": "I didn't receive any message. Please let me know how I can assist you!"
+        "text": "who are you"
       }
-    ]
-  },
-  {
-    "parts": [],
-    "id": "MlQze9sbKvTtcWGC",
-    "role": "user"
-  },
-  {
-    "id": "fdoyWDMY4KkprOap",
-    "metadata": {},
-    "role": "assistant",
-    "parts": [
-      {
-        "type": "step-start"
-      },
-      {
-        "type": "text",
-        "text": "I still didn't receive any message. If you need help with something, please type your request. I'm here to assist!"
-      }
-    ]
-  },
-  {
-    "parts": [],
-    "id": "4X58Gx0QQrpa39if",
-    "role": "user"
-  },
-  {
-    "id": "S4VWY4fg3pQlJMyf",
-    "metadata": {},
-    "role": "assistant",
-    "parts": [
-      {
-        "type": "step-start"
-      },
-      {
-        "type": "text",
-        "text": "I still haven't received any message from you. Please try typing your question or request again whenever you're ready."
-      }
-    ]
-  },
-  {
-    "parts": [],
-    "id": "XRLF11gZHihaas1t",
+    ],
+    "id": "Knb8cxDaVPHZsa8U",
     "role": "user"
   },
   {
@@ -114,7 +62,7 @@
       },
       {
         "type": "text",
-        "text": "It seems like your messages are coming through empty. If you're experiencing technical issues, you might want to try refreshing the page or using a different device or browser. I'm here to help whenever you're ready!"
+        "text": "I am an AI language model here to assist you with any questions or tasks you have. How can I help you today?"
       }
     ]
   }

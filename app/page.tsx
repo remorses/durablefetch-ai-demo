@@ -7,11 +7,20 @@ import { useEffect } from "react";
 import { DurableFetchClient } from "durablefetch";
 import Markdown from "react-markdown";
 import { z } from "zod";
+import { useSearchParams } from "next/navigation";
 
 const df = new DurableFetchClient();
 
 export default function Chat() {
-  const chatId = "asdfsdflkhsdfklsdfj";
+  const searchParams = useSearchParams();
+  const chatId = searchParams.get("chatId");
+
+  if (!chatId) {
+    {
+      window.location.href = `/?chatId=${Math.random().toString(36).substring(2)}`;
+      return null;
+    }
+  }
   // api path must be unique per chat
   const api = `/api/chat?chatId=${chatId}`;
   useEffect(() => {
@@ -192,8 +201,6 @@ export default function Chat() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          sendMessage({ parts: [] });
-          return;
           const formData = new FormData(e.currentTarget);
           const message = formData.get("message") as string;
           if (message.trim()) {
