@@ -3,14 +3,14 @@
     "parts": [
       {
         "type": "text",
-        "text": "write a poem"
+        "text": "hello"
       }
     ],
-    "id": "2U3Kq17gCYcqr3Ko",
+    "id": "VSZ4wqGSqNQ0HRK5",
     "role": "user"
   },
   {
-    "id": "j7uqX2PWyJXeBuUV",
+    "id": "UWLUl6mMIrccY2mk",
     "metadata": {},
     "role": "assistant",
     "parts": [
@@ -18,33 +18,8 @@
         "type": "step-start"
       },
       {
-        "type": "tool-invocation",
-        "toolInvocation": {
-          "state": "result",
-          "toolCallId": "call_KfK3MLR1XNiB3hufYCOBELtp",
-          "toolName": "generateWriting",
-          "args": {
-            "prompt": "Write a poem about the beauty of a sunrise over a quiet ocean."
-          },
-          "result": {
-            "prompt": "Write a poem about the beauty of a sunrise over a quiet ocean.",
-            "text": "At dawn’s soft breath, the sky ignites,  \nA fiery hue on tranquil tides,  \nWhispers of gold in gentle light,  \nThe ocean’s mirror, dusk abides.  \n\nSilence sways with morning’s glow,  \nA peaceful hush, a tender flow,  \nBeauty blooms where shadows go,  \nIn sunrise’s warm, tender show.  \n\nWaves kiss the day’s first gleam,  \nNature’s quiet, vivid dream,  \nA moment’s grace, serene and keen,  \nThe ocean’s song, still and pristine."
-          }
-        }
-      },
-      {
-        "type": "data-generateWriting",
-        "id": "call_KfK3MLR1XNiB3hufYCOBELtp",
-        "data": {
-          "text": "At dawn’s soft breath, the sky ignites,  \nA fiery hue on tranquil tides,  \nWhispers of gold in gentle light,  \nThe ocean’s mirror, dusk abides.  \n\nSilence sways with morning’s glow,  \nA peaceful hush, a tender flow,  \nBeauty blooms where shadows go,  \nIn sunrise’s warm, tender show.  \n\nWaves kiss the day’s first gleam,  \nNature’s quiet, vivid dream,  \nA moment’s grace, serene and keen,  \nThe ocean’s song, still and pristine."
-        }
-      },
-      {
-        "type": "step-start"
-      },
-      {
         "type": "text",
-        "text": "At dawn’s soft breath, the sky ignites,  \nA fiery hue on tranquil tides,  \nWhispers of gold in gentle light,  \nThe ocean’s mirror, dusk abides.  \n\nSilence sways with morning’s glow,  \nA peaceful hush, a tender flow,  \nBeauty blooms where shadows go,  \nIn sunrise’s warm, tender show.  \n\nWaves kiss the day’s first gleam,  \nNature’s quiet, vivid dream,  \nA moment’s grace, serene and keen,  \nThe ocean’s song, still and pristine."
+        "text": "Hello! How can I assist you today?"
       }
     ]
   },
@@ -52,10 +27,10 @@
     "parts": [
       {
         "type": "text",
-        "text": "write a super long story now"
+        "text": "again"
       }
     ],
-    "id": "TgdOs44ek7D5fkuC",
+    "id": "HW1QRaT6gPeOJB9r",
     "role": "user"
   },
   {
@@ -67,33 +42,8 @@
         "type": "step-start"
       },
       {
-        "type": "tool-invocation",
-        "toolInvocation": {
-          "state": "result",
-          "toolCallId": "call_yWwTthjoCanaulQ89S6QYlTZ",
-          "toolName": "generateWriting",
-          "args": {
-            "prompt": "Write a super long story about a young adventurer named Elara who discovers an ancient map leading to a hidden kingdom beneath the mountains. The story should include detailed descriptions of the landscape, the journey she undertakes, the challenges she faces, the allies she makes, and the secrets she uncovers in the hidden kingdom."
-          },
-          "result": {
-            "prompt": "Write a super long story about a young adventurer named Elara who discovers an ancient map leading to a hidden kingdom beneath the mountains. The story should include detailed descriptions of the landscape, the journey she undertakes, the challenges she faces, the allies she makes, and the secrets she uncovers in the hidden kingdom.",
-            "text": "Elara, a spirited young adventurer, discovers an ancient parchment revealing a hidden kingdom beneath towering mountains. Guided by star maps and her keen intuition, she treks through dense, whispering forests where emerald leaves shimmer, and rivers sing ancient melodies. Facing treacherous cliffs, icy crevasses, and fierce storms, she perseveres, forging alliances with a wise old hermit and a swift mountain bird. Deep below, the lost realm boasts shimmering crystal halls and glowing flora, hiding secrets of a bygone civilization. Elara uncovers long-lost knowledge, revealing the kingdom’s history and a sacred relic with the power to heal the world."
-          }
-        }
-      },
-      {
-        "type": "data-generateWriting",
-        "data": {
-          "text": "Elara, a spirited young adventurer, discovers an ancient parchment revealing a hidden kingdom beneath towering mountains. Guided by star maps and her keen intuition, she treks through dense, whispering forests where emerald leaves shimmer, and rivers sing ancient melodies. Facing treacherous cliffs, icy crevasses, and fierce storms, she perseveres, forging alliances with a wise old hermit and a swift mountain bird. Deep below, the lost realm boasts shimmering crystal halls and glowing flora, hiding secrets of a bygone civilization. Elara uncovers long-lost knowledge, revealing the kingdom’s history and a sacred relic with the power to heal the world."
-        },
-        "id": "call_yWwTthjoCanaulQ89S6QYlTZ"
-      },
-      {
-        "type": "step-start"
-      },
-      {
         "type": "text",
-        "text": "Here is a super long story about Elara's adventure:\n\nElara, a spirited young adventurer, discovers an ancient parchment revealing a hidden kingdom beneath towering mountains. Guided by star maps and her keen intuition, she treks through dense, whispering forests where emerald leaves shimmer, and rivers sing ancient melodies. Facing treacherous cliffs, icy crevasses, and fierce storms, she perseveres, forging alliances with a wise old hermit and a swift mountain bird. Deep below, the lost realm boasts shimmering crystal halls and glowing flora, hiding secrets of a bygone civilization. Elara uncovers long-lost knowledge, revealing the kingdom’s history and a sacred relic with the power to heal the world.\n\nIf you would like, I can continue to expand and provide more detailed portions of the story. Just let me know!"
+        "text": "Hello again! How can I assist you today?"
       }
     ]
   }

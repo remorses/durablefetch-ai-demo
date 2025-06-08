@@ -86,7 +86,7 @@ export default function Chat() {
   );
 }
 
-const Message = React.memo((message: UIMessage) => {
+const Message = (message: UIMessage) => {
   if (!message.parts?.length) return null;
 
   return (
@@ -125,6 +125,6 @@ const Message = React.memo((message: UIMessage) => {
       </div>
     </div>
   );
-});
+};
 
 Message.displayName = "Message";
