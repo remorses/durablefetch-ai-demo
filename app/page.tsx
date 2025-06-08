@@ -2,7 +2,7 @@
 
 import { useScrollToBottom } from "@/hooks/use-scroll-to-bottom";
 import { useChat } from "@ai-sdk/react";
-import { DefaultChatTransport } from "ai";
+import { DefaultChatTransport, UIMessage } from "ai";
 import { useEffect } from "react";
 import React from "react";
 import { DurableFetchClient } from "durablefetch";
@@ -85,7 +85,7 @@ export default function Chat() {
   );
 }
 
-const Message = React.memo(({ message }: { message: any }) => {
+const Message = React.memo(({ message }: { message: UIMessage }) => {
   if (!message.parts?.length) return null;
 
   return (
