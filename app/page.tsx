@@ -63,13 +63,14 @@ export default function Chat() {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          const formData = new FormData(e.currentTarget);
+          const form = e.currentTarget;
+          const formData = new FormData(form);
           await df.delete(api);
           const message = formData.get("message") as string;
           if (message.trim()) {
             sendMessage({ text: message });
             localStorage.setItem("lastMessage", message);
-            e.currentTarget.reset();
+            form.reset();
           }
         }}
         className="w-full max-w-xl mx-auto"
