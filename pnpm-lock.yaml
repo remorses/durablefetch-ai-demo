@@ -18,8 +18,8 @@ importers:
         specifier: 5.0.0-alpha.10
         version: 5.0.0-alpha.10(zod@3.25.56)
       durablefetch:
-        specifier: ^0.0.5
-        version: 0.0.5
+        specifier: ^0.0.6
+        version: 0.0.6
       next:
         specifier: 15.3.2
         version: 15.3.2(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -503,8 +503,8 @@ packages:
   devlop@1.1.0:
     resolution: {integrity: sha512-RWmIqhcFf1lRYBvNmr7qTNuyCt/7/ns2jbpp1+PalgE/rDQcBT0fioSMUpJ93irlUhC5hrg4cYqe6U+0ImW0rA==}
 
-  durablefetch@0.0.5:
-    resolution: {integrity: sha512-GOk/iVQJndrPUuoDBxBJ3qYG2uMqBjiwBdUOS8RaStnnzPf+JzTb3jR1OV75aiaB56b47lNgMWgysMCXngWB0w==}
+  durablefetch@0.0.6:
+    resolution: {integrity: sha512-yF6d3aBOiTnYQ0TsIWTc+QB0PaHM/dX5e9i48vGT1ppKLuOMhNKAt7EoPw6bQpyJ7qcGiziNZcQ579l2bua2WQ==}
 
   enhanced-resolve@5.18.1:
     resolution: {integrity: sha512-ZSW3ma5GkcQBIpwZTSRAI8N71Uuwgs93IezB7mf7R60tC8ZbJideoDNKjHn2O9KIlx6rkGTTEk1xUCK2E1Y2Yg==}
@@ -1285,7 +1285,7 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
-  durablefetch@0.0.5: {}
+  durablefetch@0.0.6: {}
 
   enhanced-resolve@5.18.1:
     dependencies:
