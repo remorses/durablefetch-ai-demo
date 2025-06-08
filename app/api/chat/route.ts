@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     execute: (opts) => {
       opts.writer;
       const result = streamText({
-        model: openai("gpt-4.1-mini"),
+        model: openai("gpt-4.1-nano"),
         messages: convertToModelMessages(messages),
         stopWhen: () => false,
         providerOptions: {
