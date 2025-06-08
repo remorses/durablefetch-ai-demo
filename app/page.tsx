@@ -77,10 +77,8 @@ export default function Chat() {
                       );
                     case "tool-invocation":
                       return (
-                        <div key={i} className="whitespace-pre-wrap">
-                          <div className="font-mono">
-                            <p>TOOL: {p.toolInvocation.toolName}</p>
-                          </div>
+                        <div key={i} className="">
+                          <p>Calling tool {p.toolInvocation.toolName}</p>
                         </div>
                       );
                     case "data-weather":
@@ -178,10 +176,8 @@ export default function Chat() {
                     case "data-generateWriting":
                       return (
                         <div key={i} className="whitespace-pre-wrap">
-                          <div className="bg-parchment p-4 border border-gray-800 rounded font-serif">
-                            <div className="font-mono text-gray-800 leading-relaxed tracking-wide w-full">
-                              <Markdown>{p.data.text}</Markdown>
-                            </div>
+                          <div className="font-mono rounded-lg text-gray-800 p-6 py-3 -ml-6 text-xs bg-white leading-relaxed tracking-wide w-full">
+                            <Markdown>{p.data.text}</Markdown>
                           </div>
                         </div>
                       );
