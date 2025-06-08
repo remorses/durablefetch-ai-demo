@@ -100,12 +100,11 @@ export default function Chat() {
       <form
         onSubmit={async (e) => {
           e.preventDefault();
-          df.delete(api);
           const formData = new FormData(e.currentTarget);
+          await df.delete(api);
           const message = formData.get("message") as string;
           if (message.trim()) {
             sendMessage({ text: message });
-
             localStorage.setItem("lastMessage", message);
             e.currentTarget.reset();
           }
