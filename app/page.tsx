@@ -42,13 +42,6 @@ export default function Chat() {
     },
     id: chatId,
     dataPartSchemas: {
-      weather: z.object({
-        temperature: z.number(),
-        weatherCode: z.number(),
-        humidity: z.number(),
-        city: z.string(),
-        loading: z.boolean(),
-      }),
       generateWriting: z.object({
         text: z.string(),
       }),
@@ -82,98 +75,6 @@ export default function Chat() {
                       return (
                         <div key={i} className="">
                           <p>Calling tool {p.toolInvocation.toolName}</p>
-                        </div>
-                      );
-                    case "data-weather":
-                      return (
-                        <div key={i} className="whitespace-pre-wrap">
-                          {p.data.loading ? (
-                            <div className="bg-gray-200 rounded-xl p-4 text-gray-400 shadow-lg animate-pulse">
-                              <div className="flex justify-between items-center">
-                                <div>
-                                  <div className="h-6 w-24 bg-gray-300 rounded mb-2"></div>
-                                  <div className="h-10 w-16 bg-gray-300 rounded"></div>
-                                </div>
-                                <div className="h-12 w-12 rounded-full bg-gray-300"></div>
-                              </div>
-                              <div className="mt-4 flex justify-between">
-                                <div className="h-4 w-24 bg-gray-300 rounded"></div>
-                                <div className="h-4 w-24 bg-gray-300 rounded"></div>
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="bg-gradient-to-b from-blue-400 to-blue-600 rounded-xl p-4 text-white shadow-lg">
-                              <div className="flex justify-between items-center">
-                                <div>
-                                  <p className="text-xl font-light">
-                                    {p.data.city}
-                                  </p>
-                                  <p className="text-4xl font-semibold mt-1">
-                                    {p.data.temperature}°
-                                  </p>
-                                </div>
-                                <div>
-                                  {p.data.weatherCode < 800 ? (
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      className="h-12 w-12"
-                                      viewBox="0 0 20 20"
-                                      fill="currentColor"
-                                    >
-                                      <path d="M5.5 16a3.5 3.5 0 01-.59-6.95 5.002 5.002 0 019.18-1A3.5 3.5 0 0118 13.5V16H5.5z" />
-                                      <path d="M10 8a3 3 0 100-6 3 3 0 000 6z" />
-                                    </svg>
-                                  ) : p.data.temperature > 25 ? (
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      className="h-12 w-12"
-                                      viewBox="0 0 20 20"
-                                      fill="currentColor"
-                                    >
-                                      <circle
-                                        cx="10"
-                                        cy="10"
-                                        r="5"
-                                        fill="yellow"
-                                      />
-                                      <path
-                                        fillRule="evenodd"
-                                        d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z"
-                                        clipRule="evenodd"
-                                      />
-                                    </svg>
-                                  ) : (
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      className="h-12 w-12"
-                                      viewBox="0 0 20 20"
-                                      fill="currentColor"
-                                    >
-                                      <path d="M5.5 10a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0z" />
-                                      <path
-                                        fillRule="evenodd"
-                                        d="M10 3.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm-8 6.5a8 8 0 1116 0 8 8 0 01-16 0z"
-                                        clipRule="evenodd"
-                                      />
-                                    </svg>
-                                  )}
-                                </div>
-                              </div>
-                              <div className="flex justify-between mt-4 text-sm">
-                                <div>
-                                  <span className="font-medium">Humidity:</span>{" "}
-                                  {p.data.humidity}%
-                                </div>
-                                <div>
-                                  <span className="font-medium">Code:</span>{" "}
-                                  {p.data.weatherCode}
-                                </div>
-                              </div>
-                              <div className="mt-2 text-xs text-right">
-                                Updated just now
-                              </div>
-                            </div>
-                          )}
                         </div>
                       );
                     case "data-generateWriting":

@@ -44,49 +44,6 @@ export async function POST(req: Request) {
         onFinish(data) {},
 
         tools: {
-          getWeather: tool({
-            description: "Get the current weather at a location",
-            parameters: z.object({
-              latitude: z.number(),
-              longitude: z.number(),
-              city: z.string(),
-            }),
-            execute: async ({ latitude, longitude, city }, { toolCallId }) => {
-              const response = await fetch(
-                `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weathercode,relativehumidity_2m&timezone=auto`,
-              );
-              opts.writer.write({
-                type: "data-weather",
-                data: {
-                  temperature: undefined,
-                  weatherCode: undefined,
-                  humidity: undefined,
-                  city,
-                  loading: false,
-                },
-                id: toolCallId,
-              });
-
-              const weatherData = await response.json();
-              opts.writer.write({
-                type: "data-weather",
-                data: {
-                  temperature: weatherData.current.temperature_2m,
-                  weatherCode: weatherData.current.weathercode,
-                  humidity: weatherData.current.relativehumidity_2m,
-                  city,
-                  loading: false,
-                },
-                id: toolCallId,
-              });
-              return {
-                temperature: weatherData.current.temperature_2m,
-                weatherCode: weatherData.current.weathercode,
-                humidity: weatherData.current.relativehumidity_2m,
-                city,
-              };
-            },
-          }),
           generateWriting: tool({
             description: "Write something (email, poem etc.).",
             parameters: z.object({ prompt: z.string() }),
@@ -116,24 +73,6 @@ export async function POST(req: Request) {
               };
             },
           }),
-          generateCode: tool({
-            description: "Generate code based on requirements",
-            parameters: z.object({ repo: z.string() }),
-            execute: async ({ repo }) => {
-              await new Promise((resolve) => setTimeout(resolve, 2000));
-              return "Generated 3 files for " + repo;
-            },
-          }),
-          createPR: tool({
-            description: "Create a pull request with generated code",
-            parameters: z.object({
-              branch: z.string(),
-            }),
-            execute: async ({ branch }) => {
-              await new Promise((resolve) => setTimeout(resolve, 2000));
-              return "Created a PR for " + branch;
-            },
-          }),
         },
       });
 
@@ -154,9 +93,8 @@ export async function POST(req: Request) {
       opts.writer.merge(uiStream);
     },
   });
-  const [cloned, uiStream2] = stream.tee();
 
-  return createUIMessageStreamResponse({ stream: cloned });
+  return createUIMessageStreamResponse({ stream: stream });
 }
 
 async function streamToArray<T>(stream: ReadableStream<T>): Promise<T[]> {
