@@ -27,8 +27,9 @@ export default function Chat() {
     df.isInProgress(api).then(({ inProgress }) => {
       if (inProgress) {
         console.log(`resuming the previous chat message stream`);
+        const text = localStorage.getItem("lastMessage") || "";
         return sendMessage({
-          parts: [], // body does not matter, the previous fetch call with the same url is resumed
+          text,
         });
       }
     });
@@ -36,7 +37,9 @@ export default function Chat() {
 
   const { messages, sendMessage, error } = useChat({
     transport: new DefaultChatTransport({ api, fetch: df.fetch }),
-
+    onFinish() {
+      localStorage.setItem("lastMessage", "");
+    },
     id: chatId,
     dataPartSchemas: {
       weather: z.object({
@@ -200,6 +203,7 @@ export default function Chat() {
           const message = formData.get("message") as string;
           if (message.trim()) {
             sendMessage({ text: message });
+            localStorage.setItem("lastMessage", message);
             e.currentTarget.reset();
           }
         }}
